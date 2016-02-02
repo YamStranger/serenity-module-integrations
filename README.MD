@@ -30,7 +30,7 @@ git submodule update --init --recursive
 current configuration can use parallel test execution and modules build, as result all modules and all test of modules execute in parallel - it can be resource consuming but will use resources of your PC in much more efficient way and make build much faster on powerful pc (tested with 22+ CPU cores and 20+ GB of RAM). 
 
 
-## Build all projects using latest version of Serentiy modules
+## Build all projects using latest version of Serenity modules
 
 For this you should update all submodules to last version. 
 
@@ -40,3 +40,14 @@ Fore example, your latest version of modules available under remote "origin" rep
 git submodule foreach git pull origin master
 ./gradlew clean build
 ```
+
+
+## Build one project based on latest version of Serneity modules
+It is possible to build only one project (module) using latest serenity-core module (or some other version if you update this submodule)
+
+to so this you should (for example for Serenity JBehave): 
+
+```
+./gradlew clean test -Dsingle.test=WhenBuildingSerenityJBehave
+```
+test with name WhenBuildingSerenityJBehave will build Serentiy core and after that will use it for build serenity-jbehave
